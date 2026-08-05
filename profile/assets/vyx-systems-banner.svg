@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1983" height="793" viewBox="0 0 1983 793" role="img" aria-labelledby="title desc">
+  <title id="title">VYX Systems</title>
+  <desc id="desc">VYX Systems — A tecnologia que o seu negócio precisa.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06101B"/>
+      <stop offset="0.52" stop-color="#091624"/>
+      <stop offset="1" stop-color="#040910"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(1580 126) rotate(140) scale(720 470)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38BDF8" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="#8BBDE0" stroke-opacity=".04"/>
+    </pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="20" stdDeviation="34" flood-opacity=".44"/>
+    </filter>
+  </defs>
+  <rect width="1983" height="793" rx="36" fill="url(#background)"/>
+  <rect width="1983" height="793" rx="36" fill="url(#grid)"/>
+  <rect width="1983" height="793" rx="36" fill="url(#glow)"/>
+  <g transform="translate(126 122)" filter="url(#shadow)">
+    <rect width="540" height="548" rx="34" fill="#09111A" stroke="#2FB6F3" stroke-opacity=".34"/>
+    <rect x="24" y="24" width="492" height="500" rx="24" fill="#0E1B29"/>
+    <path d="M270 112 418 322 270 436 122 322Z" fill="none" stroke="#59AEE1" stroke-width="30" stroke-linejoin="round"/>
+    <path d="m122 322 148-210 148 210" fill="none" stroke="#0082C0" stroke-width="30" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(790 126)" font-family="Inter,Arial,sans-serif">
+    <path d="M0 28H20" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+    <text x="40" y="34" fill="#B7C9D9" font-size="15" font-weight="700" letter-spacing="6">VYX SYSTEMS</text>
+    <text x="0" y="168" fill="#F8FAFC" font-size="72" font-weight="700">
+      <tspan x="0">A TECNOLOGIA</tspan><tspan x="0" dy="84">QUE O SEU NEGÓCIO</tspan><tspan x="0" dy="84">PRECISA</tspan>
+    </text>
+    <text x="0" y="405" fill="#AFC1D1" font-size="25">
+      <tspan x="0">Produtos digitais, automação e plataformas operacionais</tspan><tspan x="0" dy="38">para empresas modernas e em crescimento.</tspan>
+    </text>
+    <text x="0" y="650" fill="#6F879B" font-size="15" font-weight="600" letter-spacing="2">FABVYX · CONSTRUVYX · DIGITAL PRODUCTS · PORTUGAL</text>
+  </g>
+  <rect x=".75" y=".75" width="1981.5" height="791.5" rx="35.25" fill="none" stroke="#CDEFFF" stroke-opacity=".07" stroke-width="1.5"/>
+</svg>
