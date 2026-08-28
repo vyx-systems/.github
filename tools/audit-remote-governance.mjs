@@ -28,6 +28,10 @@ for (const repository of policy.repositories) {
 
   const codeowners = await get(`/repos/${prefix}/contents/${repository.codeownersPath}?ref=main`);
   if (codeowners.status !== 200 || codeowners.body?.type !== "file") failures.push(`${prefix}: CODEOWNERS missing on main: ${repository.codeownersPath}`);
+  else {
+    const codeownersText = Buffer.from(codeowners.body.content ?? "", "base64").toString("utf8");
+    for (const domain of repository.protectedDomains) if (!codeownersText.includes(domain)) failures.push(`${prefix}: CODEOWNERS does not cover protected domain: ${domain}`);
+  }
 
   const workflows = await get(`/repos/${prefix}/contents/.github/workflows?ref=main`);
   if (workflows.status !== 200 || !Array.isArray(workflows.body)) {
