@@ -16,4 +16,6 @@ GOVERNANCE_AUDIT_TOKEN=... node tools/audit-remote-governance.mjs
 
 The remote audit is read-only and fails closed. Store the token only as a protected organization secret; never put it in a pull request or repository file.
 
+See [governance/bootstrap.md](governance/bootstrap.md) for the protected setup and result interpretation.
+
 The policy is declarative. Applying branch protection, rulesets and required checks still requires an organization owner with the corresponding GitHub plan and administrative permissions; the workflow fails closed on malformed policy rather than claiming that remote settings are already enforced.
