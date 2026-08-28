@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 
 const policyPath = process.argv.find((arg) => arg.startsWith("--policy="))?.slice("--policy=".length) ?? "governance/repositories.json";
@@ -27,7 +28,8 @@ for (const repository of policy.repositories) {
       const started = Date.parse(check.started_at ?? check.created_at ?? "");
       if (!Number.isFinite(started) || now - started <= slaMs) continue;
       const ageMinutes = Math.floor((now - started) / 60_000);
-      failures.push(`${prefix}#${pull.number} ${check.name} ${check.status} for ${ageMinutes}m at ${pull.head.sha}`);
+      const fingerprint = createHash("sha256").update(`${prefix}#${pull.number}:${pull.head.sha}:${check.name}`).digest("hex").slice(0, 16);
+      failures.push(`fingerprint=governance-watchdog:${fingerprint} ${prefix}#${pull.number} ${check.name} ${check.status} for ${ageMinutes}m at ${pull.head.sha}`);
     }
   }
 }
