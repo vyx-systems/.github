@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "organization": "vyx-systems",
+  "repositories": [
+    {
+      "name": "fabvyx-platform",
+      "requiredWorkflows": [".github/workflows/ci.yml", ".github/workflows/security.yml", ".github/workflows/main-watchdog.yml"],
+      "protectedDomains": ["contracts/", "packages/", "prisma/", "apps/api/", ".github/workflows/"]
+    },
+    {
+      "name": "fabvyx-floorconnect",
+      "requiredWorkflows": [".github/workflows/ci.yml", ".github/workflows/security.yml", ".github/workflows/main-watchdog.yml"],
+      "protectedDomains": ["packages/contracts/", "prisma/", "services/api/", "services/worker/", ".github/workflows/"]
+    },
+    {
+      "name": "fabvyx-agents",
+      "requiredWorkflows": [".github/workflows/ci.yml", ".github/workflows/release.yml"],
+      "protectedDomains": ["services/agent/", "tools/release/", ".github/workflows/"]
+    },
+    {
+      "name": "fabvyx-edge-agent",
+      "requiredWorkflows": [".github/workflows/ci-linux.yml", ".github/workflows/ci-windows.yml", ".github/workflows/release-linux.yml"],
+      "protectedDomains": ["internal/", "cmd/", "scripts/", ".github/workflows/"]
+    },
+    {
+      "name": "fabvyx-protocol",
+      "requiredWorkflows": [".github/workflows/ci.yml", ".github/workflows/release-train.yml"],
+      "protectedDomains": ["schemas/", "src/", "tools/", "release-manifest/", ".github/workflows/"]
+    }
+  ],
+  "rules": {
+    "pullRequestRunners": "ephemeral-isolated",
+    "releaseRunners": "protected-environment",
+    "requiredChecksMustUseMergeSha": true,
+    "queuedChecksSlaMinutes": 30,
+    "forbidPrivilegedSecretsOnUntrustedPullRequests": true
+  }
+}
