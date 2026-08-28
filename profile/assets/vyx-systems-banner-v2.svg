@@ -30,12 +30,12 @@
   </g>
   <g font-family="'Neue Haas Grotesk Display Pro', 'Söhne', 'Helvetica Now Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" fill="#6E747B">
    <g fill-opacity="0.16">
-    <text x="1379" y="202" fill="#F6F5F2" font-size="35" font-weight="400" letter-spacing="-0.6">01</text>
-    <text x="1436" y="202" fill="#F6F5F2" font-size="10" font-weight="500" letter-spacing="1.4">FABVYX</text>
-    <text x="1379" y="272" fill="#F6F5F2" font-size="35" font-weight="400" letter-spacing="-0.6">02</text>
-    <text x="1436" y="272" fill="#F6F5F2" font-size="10" font-weight="500" letter-spacing="1.4">CONSTRUVYX</text>
-    <text x="1379" y="342" fill="#F6F5F2" font-size="35" font-weight="400" letter-spacing="-0.6">03</text>
-    <text x="1436" y="342" fill="#F6F5F2" font-size="10" font-weight="500" letter-spacing="1.4">SHOPVYX</text>
+    <text x="1379" y="202" fill="#FFFFFF" font-size="35" font-weight="400" letter-spacing="-0.6">01</text>
+    <text x="1436" y="202" fill="#FFFFFF" font-size="10" font-weight="500" letter-spacing="1.4">FABVYX</text>
+    <text x="1379" y="272" fill="#FFFFFF" font-size="35" font-weight="400" letter-spacing="-0.6">02</text>
+    <text x="1436" y="272" fill="#FFFFFF" font-size="10" font-weight="500" letter-spacing="1.4">CONSTRUVYX</text>
+    <text x="1379" y="342" fill="#FFFFFF" font-size="35" font-weight="400" letter-spacing="-0.6">03</text>
+    <text x="1436" y="342" fill="#FFFFFF" font-size="10" font-weight="500" letter-spacing="1.4">SHOPVYX</text>
    </g>
    <g fill-opacity="0.10">
     <rect x="1379" y="225" width="147" height="1"/>
