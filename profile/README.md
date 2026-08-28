@@ -2,14 +2,14 @@
   <a href="https://vyx.pt" aria-label="Visitar o website da vyx Systems">
     <img
       src="./assets/vyx-systems-banner.svg"
-      alt="vyx Systems — A tecnologia que o seu negócio precisa"
+      alt="vyx Systems — Sistemas que fazem o negócio avançar"
       width="100%"
     />
   </a>
 </p>
 
 <p align="center">
-  <strong>Sistemas pensados para operações reais.</strong><br />
+  <strong>Sistemas que fazem o negócio avançar.</strong><br />
   Criamos produtos digitais, automação e plataformas empresariais<br />
   que transformam processos complexos em operações simples, ligadas e escaláveis.
 </p>
