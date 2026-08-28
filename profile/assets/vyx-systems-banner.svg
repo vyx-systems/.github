@@ -1,43 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1983" height="793" viewBox="0 0 1983 793" role="img" aria-labelledby="title desc">
-  <title id="title">VYX Systems</title>
-  <desc id="desc">VYX Systems — A tecnologia que o seu negócio precisa.</desc>
-  <defs>
-    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#06101B"/>
-      <stop offset="0.52" stop-color="#091624"/>
-      <stop offset="1" stop-color="#040910"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(1580 126) rotate(140) scale(720 470)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#38BDF8" stop-opacity=".2"/>
-      <stop offset="1" stop-color="#2563EB" stop-opacity="0"/>
-    </radialGradient>
-    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
-      <path d="M44 0H0V44" fill="none" stroke="#8BBDE0" stroke-opacity=".04"/>
-    </pattern>
-    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="20" stdDeviation="34" flood-opacity=".44"/>
-    </filter>
-  </defs>
-  <rect width="1983" height="793" rx="36" fill="url(#background)"/>
-  <rect width="1983" height="793" rx="36" fill="url(#grid)"/>
-  <rect width="1983" height="793" rx="36" fill="url(#glow)"/>
-  <g transform="translate(126 122)" filter="url(#shadow)">
-    <rect width="540" height="548" rx="34" fill="#09111A" stroke="#2FB6F3" stroke-opacity=".34"/>
-    <rect x="24" y="24" width="492" height="500" rx="24" fill="#0E1B29"/>
-    <path d="M270 112 418 322 270 436 122 322Z" fill="none" stroke="#59AEE1" stroke-width="30" stroke-linejoin="round"/>
-    <path d="m122 322 148-210 148 210" fill="none" stroke="#0082C0" stroke-width="30" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="500" viewBox="0 0 1600 500" role="img" aria-labelledby="t d" shape-rendering="geometricPrecision">
+ <title id="t">VYX Systems — Sistemas que fazem o negócio avançar</title>
+ <desc id="d">Banner GitHub com divisão vertical: lockup de marca no painel claro à esquerda, mensagem editorial no painel grafite à direita.</desc>
+ <defs>
+  <path id="vyx" d="M60,2 L40,2 L50,12 Z M59,43 L65,49 L50,64 L20,34 L0,34 L50,84 L75,59 L80,64 L100,64 L85,49 L100,34 L80,34 L75,39 L70,34 L68,34 L100,2 L80,2 L50,32 L20,2 L0,2 L50,52 Z"/>
+ </defs>
+ <g>
+  <rect width="1600" height="500" fill="#101114"/>
+  <g opacity="0.035">
+   <use href="#vyx" transform="translate(1180 250) scale(6.4)" fill="#6E747B" fill-rule="evenodd" fill-opacity="1"/>
   </g>
-  <g transform="translate(790 126)" font-family="Inter,Arial,sans-serif">
-    <path d="M0 28H20" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
-    <text x="40" y="34" fill="#B7C9D9" font-size="15" font-weight="700" letter-spacing="6">VYX SYSTEMS</text>
-    <text x="0" y="168" fill="#F8FAFC" font-size="72" font-weight="700">
-      <tspan x="0">A TECNOLOGIA</tspan><tspan x="0" dy="84">QUE O SEU NEGÓCIO</tspan><tspan x="0" dy="84">PRECISA</tspan>
-    </text>
-    <text x="0" y="405" fill="#AFC1D1" font-size="25">
-      <tspan x="0">Produtos digitais, automação e plataformas operacionais</tspan><tspan x="0" dy="38">para empresas modernas e em crescimento.</tspan>
-    </text>
-    <text x="0" y="650" fill="#6F879B" font-size="15" font-weight="600" letter-spacing="2">FABVYX · CONSTRUVYX · DIGITAL PRODUCTS · PORTUGAL</text>
+  <path d="M0 0H560L700 500H0Z" fill="#E7E8EA"/>
+  <path d="M560 0L700 500" fill="none" stroke="#6E747B" stroke-opacity="0.45" stroke-width="1"/>
+  <g fill="#16243B">
+   <use href="#vyx" transform="translate(225 127.2) scale(1.9)" fill-rule="evenodd"/>
+   <g font-family="'Neue Haas Grotesk Display Pro', 'Söhne', 'Helvetica Now Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" text-anchor="middle">
+    <text x="321" y="343" font-size="58" font-weight="700" letter-spacing="-2">VYX</text>
+    <text x="323" y="373" font-size="12" font-weight="600" letter-spacing="5.2">SYSTEMS</text>
+   </g>
   </g>
-  <rect x=".75" y=".75" width="1981.5" height="791.5" rx="35.25" fill="none" stroke="#CDEFFF" stroke-opacity=".07" stroke-width="1.5"/>
+  <g font-family="'Neue Haas Grotesk Display Pro', 'Söhne', 'Helvetica Now Display', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+   <rect x="732" y="105" width="52" height="1" fill="#6E747B"/>
+   <text x="732" y="184" fill="#F6F5F2" font-size="62" font-weight="500" letter-spacing="-0.62">
+    <tspan x="732">Sistemas que fazem</tspan>
+    <tspan x="732" dy="60.8">o negócio avançar</tspan>
+   </text>
+   <text x="732" y="291" fill="#6E747B" font-size="19" font-weight="400">Plataformas, automação e produtos digitais para operações reais.</text>
+   <text x="732" y="368" fill="#6E747B" font-size="12" font-weight="500" letter-spacing="2.6">INDÚSTRIA · CONSTRUÇÃO · RETALHO</text>
+  </g>
+  <g font-family="'Neue Haas Grotesk Display Pro', 'Söhne', 'Helvetica Now Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" fill="#6E747B">
+   <g fill-opacity="0.16">
+    <text x="1379" y="202" font-size="35" font-weight="400" letter-spacing="-0.6">01</text>
+    <text x="1436" y="202" font-size="10" font-weight="500" letter-spacing="1.4">PLATAFORMAS</text>
+    <text x="1379" y="272" font-size="35" font-weight="400" letter-spacing="-0.6">02</text>
+    <text x="1436" y="272" font-size="10" font-weight="500" letter-spacing="1.4">AUTOMAÇÃO</text>
+    <text x="1379" y="342" font-size="35" font-weight="400" letter-spacing="-0.6">03</text>
+    <text x="1436" y="342" font-size="10" font-weight="500" letter-spacing="1.4">OPERAÇÕES</text>
+   </g>
+   <g fill-opacity="0.10">
+    <rect x="1379" y="225" width="147" height="1"/>
+    <rect x="1379" y="295" width="147" height="1"/>
+   </g>
+  </g>
+ </g>
 </svg>

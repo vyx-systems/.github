@@ -2,14 +2,14 @@
   <a href="https://vyx.pt" aria-label="Visitar o website da vyx Systems">
     <img
       src="./assets/vyx-systems-banner.svg"
-      alt="vyx Systems — A tecnologia que o seu negócio precisa"
+      alt="vyx Systems — Sistemas que fazem o negócio avançar"
       width="100%"
     />
   </a>
 </p>
 
 <p align="center">
-  <strong>Sistemas pensados para operações reais.</strong><br />
+  <strong>Sistemas que fazem o negócio avançar.</strong><br />
   Criamos produtos digitais, automação e plataformas empresariais<br />
   que transformam processos complexos em operações simples, ligadas e escaláveis.
 </p>
@@ -19,7 +19,7 @@
   &nbsp;·&nbsp;
   <a href="mailto:dev@vyx.pt"><strong>Falar connosco</strong></a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/fabvyx?tab=repositories"><strong>Projetos</strong></a>
+  <a href="https://github.com/vyx-systems?tab=repositories"><strong>Projetos</strong></a>
 </p>
 
 ---
@@ -28,7 +28,7 @@
 
 Na **vyx Systems**, juntamos produto, engenharia e conhecimento operacional para desenvolver software que resolve problemas concretos.
 
-Da gestão central ao chão de fábrica, desenhamos soluções que ligam pessoas, processos e dados — com foco em clareza, controlo e evolução contínua.
+Da gestão central ao chão de fábrica, da obra ao ponto de venda, desenhamos soluções que ligam pessoas, processos e dados — com foco em clareza, controlo e evolução contínua.
 
 <table>
   <tr>
@@ -51,19 +51,23 @@ Da gestão central ao chão de fábrica, desenhamos soluções que ligam pessoas
 
 ### Fabvyx Platform
 
-O núcleo empresarial do ecossistema: uma plataforma ERP industrial que integra comercial, engenharia, produção, compras, armazém, logística, finanças e pós-venda.
-
-[Conhecer a Fabvyx Platform →](https://github.com/fabvyx/fabvyx-platform)
+O núcleo empresarial e industrial do ecossistema. Liga comercial, engenharia, produção, compras, armazém, logística, finanças e pós-venda numa plataforma preparada para operações de fabrico.
 
 ### Fabvyx FloorConnect
 
 A camada operacional local para ambientes industriais. Aproxima máquinas, postos e operadores da plataforma central, com baixa latência, continuidade de serviço e sincronização controlada.
 
-[Conhecer o Fabvyx FloorConnect →](https://github.com/fabvyx/fabvyx-floorconnect)
+### Construvyx
+
+Uma plataforma de gestão para construção, orientada ao acompanhamento de obra, equipas, assiduidade e processos administrativos — com a informação certa disponível no terreno e na gestão.
+
+### Shopvyx
+
+Uma plataforma omnicanal para retalho que liga operação de loja, POS, catálogo e presença digital, com uma base comum para crescer sem fragmentar processos.
 
 ### Produtos digitais e integrações
 
-Desenvolvemos portais, configuradores 3D, automações e integrações orientadas ao contexto de cada operação — sempre com fronteiras claras, segurança e capacidade de evolução.
+Desenvolvemos portais, configuradores 3D, automações, agentes de operação e integrações orientadas ao contexto de cada negócio — sempre com fronteiras claras, segurança e capacidade de evolução.
 
 ## Princípios de engenharia
 

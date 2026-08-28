@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1983" height="793" viewBox="0 0 1983 793" role="img" aria-labelledby="title desc">
+  <title id="title">VYX Systems - Premium GitHub Banner</title>
+  <desc id="desc">Clean premium banner for VYX Systems with the main message A TERMINOLOGIA QUE O SEU NEGÓCIO PRECISA.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06101B"/>
+      <stop offset="0.48" stop-color="#091624"/>
+      <stop offset="1" stop-color="#040910"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1580 126) rotate(140) scale(720 470)">
+      <stop offset="0" stop-color="#38BDF8" stop-opacity="0.20"/>
+      <stop offset="0.58" stop-color="#2563EB" stop-opacity="0.075"/>
+      <stop offset="1" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(260 610) rotate(-22) scale(500 330)">
+      <stop offset="0" stop-color="#0EA5E9" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#0EA5E9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="markFill" x1="7200" y1="11300" x2="15400" y2="19500" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#66DCFF"/>
+      <stop offset="0.48" stop-color="#22ACE9"/>
+      <stop offset="1" stop-color="#0477B8"/>
+    </linearGradient>
+    <linearGradient id="cardFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0E1B29"/>
+      <stop offset="1" stop-color="#08111B"/>
+    </linearGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="#8BBDE0" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="20" stdDeviation="34" flood-color="#000000" flood-opacity="0.44"/>
+    </filter>
+    <filter id="logoGlow" x="-35%" y="-35%" width="170%" height="170%">
+      <feDropShadow dx="0" dy="0" stdDeviation="11" flood-color="#38BDF8" flood-opacity="0.28"/>
+      <feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+    <filter id="watermarkGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <clipPath id="roundClip"><rect x="0" y="0" width="1983" height="793" rx="36"/></clipPath>
+    <symbol id="vyxMark" viewBox="7100 11250 8500 8350">
+      <path d="M12250.53 16552.05c59.41,-35.41 140.25,-141.23 181.68,-193.26 89.05,-111.82 485.31,-540.27 516.92,-633.32 -41.41,-37.79 -402.63,-563.12 -422.7,-613.54l749.4 -911.62c460.65,-518.34 1063.05,-1281.4 1515.09,-1815.85l746.44 -912.08 -1233.92 -5.16c-252.17,-1.5 -200.94,-29.47 -403.98,219.58l-1858.48 2247.04c-32.19,40.29 -31.11,40.66 -70.91,84.04 -15.58,16.98 -20.71,24.22 -35.96,41.09l-51.55 49.88 -1486.71 -2022.5c-85.46,-119.26 -156.08,-218.77 -244.42,-336.6 -262.37,-349.92 -98.25,-280.31 -825.32,-282.19l-831.23 1.89c35.96,87.31 378.55,525.14 461.62,642.03l1881.85 2533.82c158.95,208.12 315.52,416.61 471.18,633.03 153.19,213 315.04,423.88 467.75,636.07l473.25 637.65z" fill="url(#markFill)"/>
+      <path d="M7895.26 19450.33l1354.97 3.17c130.93,-6.01 127.18,-60.33 262.12,-224.06l1303.39 -1599.48c68.78,43.38 316.01,398.72 395.41,496.85l793.61 1026.82c288.55,371.23 163.84,297.49 613.75,298.15l1070.82 0.8c-46.14,-122.31 -2023.25,-2634.97 -2125.34,-2762.93l-622.29 -791.67c-12.59,-15.83 -24.3,-30.86 -42.83,-53.31l-62.13 -64.28 -370.53 452.47c-122.94,149.54 -247.96,307.99 -369.85,463.05l-543.29 676.89c-458.36,572.53 -1009.33,1281.54 -1475.54,1835.64 -47.52,56.47 -159.39,169.95 -182.27,241.89z" fill="url(#markFill)" opacity="0.96"/>
+      <path d="M9663.41 16182.03c91.37,-149.93 246.13,-316.4 364.55,-465.11l373.9 -469.42c-25.69,-73.48 -896.84,-1225.84 -1024.51,-1407.07l-1736.29 -2369.32 -1469.58 -2.76c40.33,105.7 1980.82,2699.31 2160.89,2952.44l1252.03 1690.44c52.48,67.17 7.64,35.42 79.01,70.8z" fill="url(#markFill)" opacity="0.88"/>
+    </symbol>
+  </defs>
+
+  <g clip-path="url(#roundClip)">
+    <rect width="1983" height="793" fill="url(#bg)"/>
+    <rect width="1983" height="793" fill="url(#grid)"/>
+    <rect width="1983" height="793" fill="url(#glowA)"/>
+    <rect width="1983" height="793" fill="url(#glowB)"/>
+
+    <path d="M1280 94C1484 123 1665 214 1818 390" fill="none" stroke="#62C7F5" stroke-opacity="0.055" stroke-width="1.5"/>
+    <path d="M1196 146C1434 190 1640 320 1796 538" fill="none" stroke="#62C7F5" stroke-opacity="0.035" stroke-width="1.5"/>
+
+    <use href="#vyxMark" x="1162" y="-158" width="1030" height="1014" opacity="0.096" filter="url(#watermarkGlow)"/>
+    <use href="#vyxMark" x="1302" y="12" width="700" height="688" opacity="0.032"/>
+
+    <g transform="translate(126 122)" filter="url(#shadow)">
+      <rect x="0" y="0" width="540" height="548" rx="34" fill="#09111A" stroke="#2FB6F3" stroke-opacity="0.34"/>
+      <rect x="24" y="24" width="492" height="500" rx="24" fill="url(#cardFill)"/>
+      <rect x="56" y="58" width="428" height="430" rx="22" fill="#0A1420" opacity="0.42"/>
+      <use href="#vyxMark" x="58" y="62" width="424" height="416" filter="url(#logoGlow)"/>
+    </g>
+
+    <g transform="translate(790 126)" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+      <g>
+        <path d="M0 28H20" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+        <text x="40" y="34" fill="#B7C9D9" font-size="15" font-weight="700" letter-spacing="6">VYX SYSTEMS</text>
+        <rect x="290" y="27" width="390" height="1.5" rx="1" fill="#4ABBF4" opacity="0.14"/>
+      </g>
+
+      <text x="0" y="168" fill="#F8FAFC" font-size="72" font-weight="780" letter-spacing="0">
+        <tspan x="0" dy="0">A TERMINOLOGIA</tspan>
+        <tspan x="0" dy="84">QUE O SEU NEGÓCIO</tspan>
+        <tspan x="0" dy="84">PRECISA</tspan>
+      </text>
+
+      <text x="0" y="405" fill="#AFC1D1" font-size="25" font-weight="450" letter-spacing="0.2">
+        <tspan x="0" dy="0">Produtos digitais, automação e plataformas operacionais</tspan>
+        <tspan x="0" dy="38">para empresas modernas e em crescimento.</tspan>
+      </text>
+
+      <g transform="translate(0 484)">
+        <g>
+          <rect width="260" height="58" rx="20" fill="#0D1722" stroke="#38BDF8" stroke-opacity="0.22"/>
+          <g transform="translate(22 16)" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-linejoin="round">
+            <path d="M12 0 24 7v14l-12 7L0 21V7Z"/>
+            <path d="M12 0v14"/>
+            <path d="M0 7l12 7 12-7"/>
+          </g>
+          <text x="68" y="37" fill="#D9E7F2" font-size="18" font-weight="650">ERP &amp; Plataformas</text>
+        </g>
+        <g transform="translate(280 0)">
+          <rect width="200" height="58" rx="20" fill="#0D1722" stroke="#38BDF8" stroke-opacity="0.22"/>
+          <g transform="translate(22 16)" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2l4 7 8 1-6 6 2 8-8-4-8 4 2-8-6-6 8-1Z"/>
+          </g>
+          <text x="66" y="37" fill="#D9E7F2" font-size="18" font-weight="650">Automação</text>
+        </g>
+        <g transform="translate(500 0)">
+          <rect width="256" height="58" rx="20" fill="#0D1722" stroke="#38BDF8" stroke-opacity="0.22"/>
+          <g transform="translate(22 16)" fill="none" stroke="#38BDF8" stroke-width="2.1" stroke-linejoin="round">
+            <path d="M2 5h24v19H2Z"/>
+            <path d="M7 10h14M7 16h9"/>
+          </g>
+          <text x="66" y="37" fill="#D9E7F2" font-size="18" font-weight="650">Dados &amp; Operações</text>
+        </g>
+      </g>
+
+      <g transform="translate(0 608)">
+        <rect x="0" y="0" width="790" height="1" fill="#A9DDF5" opacity="0.10"/>
+        <text x="0" y="42" fill="#6F879B" font-size="15" font-weight="600" letter-spacing="2">FABVYX · CONSTRUVYX · DIGITAL PRODUCTS · PORTUGAL</text>
+      </g>
+    </g>
+
+    <rect x="0.75" y="0.75" width="1981.5" height="791.5" rx="35.25" fill="none" stroke="#CDEFFF" stroke-opacity="0.07" stroke-width="1.5"/>
+  </g>
+</svg>
