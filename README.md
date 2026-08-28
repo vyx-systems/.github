@@ -8,4 +8,12 @@ This repository is the versioned source for organization-level governance policy
 node tools/validate-governance.mjs
 ```
 
+With an organization administration token, compare the declared policy with the remote `main` branch protection and required workflow files:
+
+```bash
+GOVERNANCE_AUDIT_TOKEN=... node tools/audit-remote-governance.mjs
+```
+
+The remote audit is read-only and fails closed. Store the token only as a protected organization secret; never put it in a pull request or repository file.
+
 The policy is declarative. Applying branch protection, rulesets and required checks still requires an organization owner with the corresponding GitHub plan and administrative permissions; the workflow fails closed on malformed policy rather than claiming that remote settings are already enforced.

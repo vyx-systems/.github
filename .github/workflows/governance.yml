@@ -5,13 +5,16 @@ on:
     paths:
       - governance/**
       - tools/validate-governance.mjs
+      - tools/audit-remote-governance.mjs
       - .github/workflows/governance.yml
   push:
     branches: [main]
     paths:
       - governance/**
       - tools/validate-governance.mjs
+      - tools/audit-remote-governance.mjs
       - .github/workflows/governance.yml
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -25,3 +28,19 @@ jobs:
         with:
           node-version: 22.14.0
       - run: node tools/validate-governance.mjs
+
+  audit-remote:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    environment: governance-audit
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22.14.0
+      - name: Audit remote governance
+        env:
+          GOVERNANCE_AUDIT_TOKEN: ${{ secrets.GOVERNANCE_AUDIT_TOKEN }}
+        run: node tools/audit-remote-governance.mjs
