@@ -16,6 +16,9 @@ for (const repo of policy.repositories) {
   assert(new Set(repo.requiredWorkflows).size === repo.requiredWorkflows.length, `${repo.name}: duplicate required workflow`);
   assert(Array.isArray(repo.protectedDomains) && repo.protectedDomains.length > 0, `${repo.name}: protected domains missing`);
   assert(repo.requiredWorkflows.every((workflow) => workflow.startsWith(".github/workflows/")), `${repo.name}: workflow path must be under .github/workflows`);
+  assert(Array.isArray(repo.requiredChecks) && repo.requiredChecks.length > 0, `${repo.name}: required checks missing`);
+  assert(new Set(repo.requiredChecks).size === repo.requiredChecks.length, `${repo.name}: duplicate required check`);
+  assert(repo.codeownersPath === ".github/CODEOWNERS", `${repo.name}: codeowners path must be .github/CODEOWNERS`);
 }
 console.log(`governance policy OK: ${policy.repositories.length} repositories`);
 

@@ -4,28 +4,103 @@
   "repositories": [
     {
       "name": "fabvyx-platform",
-      "requiredWorkflows": [".github/workflows/ci.yml", ".github/workflows/security.yml", ".github/workflows/main-watchdog.yml"],
-      "protectedDomains": ["contracts/", "packages/", "prisma/", "apps/api/", ".github/workflows/"]
+      "requiredWorkflows": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/security.yml",
+        ".github/workflows/main-watchdog.yml"
+      ],
+      "protectedDomains": [
+        "contracts/",
+        "packages/",
+        "prisma/",
+        "apps/api/",
+        ".github/workflows/"
+      ],
+      "requiredChecks": [
+        "Lint, Typecheck, Unit",
+        "E2E (API, Redis, SMTP)",
+        "Build & Smokes",
+        "basic-security-checks",
+        "dependency-hygiene"
+      ],
+      "codeownersPath": ".github/CODEOWNERS"
     },
     {
       "name": "fabvyx-floorconnect",
-      "requiredWorkflows": [".github/workflows/ci.yml", ".github/workflows/security.yml", ".github/workflows/main-watchdog.yml"],
-      "protectedDomains": ["packages/contracts/", "prisma/", "services/api/", "services/worker/", ".github/workflows/"]
+      "requiredWorkflows": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/security.yml",
+        ".github/workflows/main-watchdog.yml"
+      ],
+      "protectedDomains": [
+        "packages/contracts/",
+        "prisma/",
+        "services/api/",
+        "services/worker/",
+        ".github/workflows/"
+      ],
+      "requiredChecks": [
+        "Lint, Typecheck, Unit",
+        "Build, E2E, Release check",
+        "basic-security-checks",
+        "dependency-review",
+        "production-audit"
+      ],
+      "codeownersPath": ".github/CODEOWNERS"
     },
     {
       "name": "fabvyx-agents",
-      "requiredWorkflows": [".github/workflows/ci.yml", ".github/workflows/release.yml"],
-      "protectedDomains": ["services/agent/", "tools/release/", ".github/workflows/"]
+      "requiredWorkflows": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/release.yml"
+      ],
+      "protectedDomains": [
+        "services/agent/",
+        "tools/release/",
+        ".github/workflows/"
+      ],
+      "requiredChecks": [
+        "Lint, Typecheck, Unit"
+      ],
+      "codeownersPath": ".github/CODEOWNERS"
     },
     {
       "name": "fabvyx-edge-agent",
-      "requiredWorkflows": [".github/workflows/ci-linux.yml", ".github/workflows/ci-windows.yml", ".github/workflows/release-linux.yml"],
-      "protectedDomains": ["internal/", "cmd/", "scripts/", ".github/workflows/"]
+      "requiredWorkflows": [
+        ".github/workflows/ci-linux.yml",
+        ".github/workflows/ci-windows.yml",
+        ".github/workflows/release-linux.yml"
+      ],
+      "protectedDomains": [
+        "internal/",
+        "cmd/",
+        "scripts/",
+        ".github/workflows/"
+      ],
+      "requiredChecks": [
+        "test-build",
+        "test-build-windows"
+      ],
+      "codeownersPath": ".github/CODEOWNERS"
     },
     {
       "name": "fabvyx-protocol",
-      "requiredWorkflows": [".github/workflows/ci.yml", ".github/workflows/release-train.yml"],
-      "protectedDomains": ["schemas/", "src/", "tools/", "release-manifest/", ".github/workflows/"]
+      "requiredWorkflows": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/release-train.yml"
+      ],
+      "protectedDomains": [
+        "schemas/",
+        "src/",
+        "tools/",
+        "release-manifest/",
+        ".github/workflows/"
+      ],
+      "requiredChecks": [
+        "test",
+        "release-train"
+      ],
+      "codeownersPath": ".github/CODEOWNERS"
     }
   ],
   "rules": {
