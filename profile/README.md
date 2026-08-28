@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <strong>Sistemas que fazem o negócio avançar.</strong><br />
+  <strong>A terminologia que o seu negócio precisa.</strong><br />
   Criamos produtos digitais, automação e plataformas empresariais<br />
   que transformam processos complexos em operações simples, ligadas e escaláveis.
 </p>
