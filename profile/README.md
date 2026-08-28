@@ -1,73 +1,93 @@
 <p align="center">
-  <img src="./assets/vyx-banner.svg" alt="VYX Systems" width="100%" />
+  <a href="https://vyx.pt" aria-label="Visitar o website da vyx Systems">
+    <img src="./assets/vyx-banner.svg" alt="vyx Systems — A tecnologia que o seu negócio precisa" width="100%" />
+  </a>
 </p>
 
 <p align="center">
-  <strong>VYX Systems</strong> é o grupo tecnológico por trás de plataformas operacionais, produtos internos e sistemas digitais criados para tornar empresas mais rápidas, claras e controladas.
+  <strong>Sistemas pensados para operações reais.</strong><br />
+  Criamos plataformas empresariais, automação e produtos digitais<br />
+  que transformam processos complexos em operações simples, ligadas e escaláveis.
 </p>
 
 <p align="center">
-  <a href="https://vyx.pt"><img alt="Website" src="https://img.shields.io/badge/website-vyx.pt-0B1220?style=for-the-badge&labelColor=0B1220&color=168ACB" /></a>
-  <a href="mailto:dev@vyx.pt"><img alt="Email" src="https://img.shields.io/badge/contact-dev%40vyx.pt-0B1220?style=for-the-badge&labelColor=0B1220&color=2563EB" /></a>
-  <img alt="Location" src="https://img.shields.io/badge/Malta-Operations-0B1220?style=for-the-badge&labelColor=0B1220&color=38BDF8" />
+  <a href="https://vyx.pt"><strong>Website</strong></a>
+  &nbsp;·&nbsp;
+  <a href="mailto:dev@vyx.pt"><strong>Falar connosco</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/vyx-systems?tab=repositories"><strong>Projetos</strong></a>
 </p>
 
 ---
 
-## Perfil
+## Construímos sistemas que trabalham com o seu negócio
 
-A VYX funciona como um centro tecnológico e de produto: cada repositório representa um produto, departamento ou fronteira técnica dentro do ecossistema.
+Na **vyx Systems**, juntamos produto, engenharia e conhecimento operacional para desenvolver software que resolve problemas concretos.
 
-O foco é simples: criar sistemas seguros, práticos e escaláveis que ligam operações, automatizam trabalho repetitivo e transformam dados de negócio em decisões.
-
-## Ecossistema
+Da gestão central ao chão de fábrica, da obra ao ponto de venda, desenhamos soluções que ligam pessoas, processos e dados — com foco em clareza, controlo e evolução contínua.
 
 <table>
   <tr>
-    <td width="33%">
-      <strong>Plataformas operacionais</strong><br />
-      ERP, backoffice, dashboards e ferramentas de workflow para controlo diário.
+    <td width="33%" valign="top">
+      <h3>Plataformas empresariais</h3>
+      <p>Gestão integrada, processos consistentes e informação útil para decidir com confiança.</p>
     </td>
-    <td width="33%">
-      <strong>Automação</strong><br />
-      Processos internos, integrações e serviços que reduzem trabalho manual.
+    <td width="33%" valign="top">
+      <h3>Operações e automação</h3>
+      <p>Fluxos digitais, integrações e ferramentas que reduzem tarefas manuais e aproximam a tecnologia da operação.</p>
     </td>
-    <td width="33%">
-      <strong>Dados e inteligência</strong><br />
-      Relatórios, indicadores e camadas de decisão pensadas para visibilidade rápida.
+    <td width="33%" valign="top">
+      <h3>Produtos digitais</h3>
+      <p>Experiências web, configuradores e soluções à medida, pensadas para criar valor desde o primeiro contacto.</p>
     </td>
   </tr>
 </table>
 
-## Produto em Destaque
+## O ecossistema vyx
 
-### Fabvyx ERP 360
+### Fabvyx Platform
 
-O Fabvyx é uma plataforma ERP moderna para empresas que precisam de gerir vendas, compras, armazém, logística, finanças, produção e inteligência operacional num só lugar.
+O núcleo empresarial e industrial do ecossistema. Liga comercial, engenharia, produção, compras, armazém, logística, finanças e pós-venda numa plataforma preparada para operações de fabrico.
 
-É construído com uma abordagem 360º: um ecossistema único, várias áreas de negócio, permissões claras, dados fiáveis e uma experiência de utilização limpa.
+### Fabvyx FloorConnect
 
-## Princípios
+A camada operacional local para ambientes industriais. Aproxima máquinas, postos e operadores da plataforma central, com baixa latência, continuidade de serviço e sincronização controlada.
 
-- **Profissional por defeito:** interfaces limpas, documentação clara e alterações auditáveis.
-- **Operacional primeiro:** tecnologia tem de ajudar pessoas a agir mais rápido, não apenas parecer moderna.
-- **Segurança e controlo:** sistemas privados, acessos bem definidos e cuidado com dados de negócio.
-- **Estrutura escalável:** produtos e repositórios organizados por responsabilidade e caminho de crescimento.
+### Construvyx
 
-## Modelo de Repositórios
+Uma plataforma de gestão para construção, orientada ao acompanhamento de obra, equipas, assiduidade e processos administrativos — com a informação certa disponível no terreno e na gestão.
 
-A maioria dos repositórios desta organização é privada e representa trabalho ativo de produto, ferramentas internas, infraestrutura, documentação ou sistemas por departamento.
+### Shopvyx
 
-Os repositórios públicos são usados apenas quando o conteúdo deve estar visível, partilhável ou fazer parte da presença pública da empresa.
+Uma plataforma omnicanal para retalho que liga operação de loja, POS, catálogo e presença digital, com uma base comum para crescer sem fragmentar processos.
 
-## Contacto
+### Produtos digitais e integrações
 
-- Website: [vyx.pt](https://vyx.pt)
-- Email: [dev@vyx.pt](mailto:dev@vyx.pt)
-- Localização: Malta
+Desenvolvemos portais, configuradores 3D, automações, agentes de operação e integrações orientadas ao contexto de cada negócio — sempre com fronteiras claras, segurança e capacidade de evolução.
+
+## Princípios de engenharia
+
+- **O problema vem primeiro** — tecnologia com propósito e impacto mensurável.
+- **Simplicidade operacional** — sistemas claros para quem decide e para quem executa.
+- **Segurança desde a origem** — controlo de acesso, auditoria e proteção de dados por desenho.
+- **Integração sem dependência** — componentes modulares, contratos explícitos e evolução sustentável.
+- **Qualidade contínua** — automação, observabilidade e validação em todo o ciclo de entrega.
 
 ---
 
 <p align="center">
-  <sub>Software proprietário e sistemas internos. Todos os direitos reservados pela VYX Systems.</sub>
+  <strong>Tem um processo que pode funcionar melhor?</strong><br />
+  Vamos transformá-lo num sistema preparado para crescer.
+</p>
+
+<p align="center">
+  <a href="https://vyx.pt">vyx.pt</a>
+  &nbsp;·&nbsp;
+  <a href="mailto:dev@vyx.pt">dev@vyx.pt</a>
+  &nbsp;·&nbsp;
+  Portugal
+</p>
+
+<p align="center">
+  <sub>© vyx Systems · Software proprietário · Todos os direitos reservados.</sub>
 </p>
