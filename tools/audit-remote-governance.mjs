@@ -19,6 +19,11 @@ for (const repository of policy.repositories) {
     if (body.enforce_admins?.enabled !== true) failures.push(`${prefix}: enforce_admins is not enabled`);
     if (!body.required_pull_request_reviews) failures.push(`${prefix}: required pull request review rule is missing`);
     if (body.required_status_checks?.strict !== true) failures.push(`${prefix}: required status checks must require the branch to be up to date`);
+    const actualChecks = new Set([
+      ...(body.required_status_checks?.contexts ?? []),
+      ...(body.required_status_checks?.checks ?? []).map((check) => check.context ?? check.name),
+    ]);
+    for (const expected of repository.requiredChecks) if (!actualChecks.has(expected)) failures.push(`${prefix}: required check missing: ${expected}`);
   }
 
   const workflows = await get(`/repos/${prefix}/contents/.github/workflows?ref=main`);
