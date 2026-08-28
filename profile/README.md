@@ -2,7 +2,7 @@
   <a href="https://vyx.pt" aria-label="Visitar o website da vyx Systems">
     <img
       src="./assets/vyx-systems-banner-v2.svg"
-      alt="vyx Systems - Sistemas que fazem o negócio avançar"
+      alt="vyx Systems - A terminologia que o seu negócio precisa."
       width="100%"
     />
   </a>
