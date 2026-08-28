@@ -26,6 +26,9 @@ for (const repository of policy.repositories) {
     for (const expected of repository.requiredChecks) if (!actualChecks.has(expected)) failures.push(`${prefix}: required check missing: ${expected}`);
   }
 
+  const codeowners = await get(`/repos/${prefix}/contents/${repository.codeownersPath}?ref=main`);
+  if (codeowners.status !== 200 || codeowners.body?.type !== "file") failures.push(`${prefix}: CODEOWNERS missing on main: ${repository.codeownersPath}`);
+
   const workflows = await get(`/repos/${prefix}/contents/.github/workflows?ref=main`);
   if (workflows.status !== 200 || !Array.isArray(workflows.body)) {
     failures.push(`${prefix}: cannot read .github/workflows on main (HTTP ${workflows.status})`);

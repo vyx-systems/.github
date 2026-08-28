@@ -22,7 +22,8 @@
         "Build & Smokes",
         "basic-security-checks",
         "dependency-hygiene"
-      ]
+      ],
+      "codeownersPath": ".github/CODEOWNERS"
     },
     {
       "name": "fabvyx-floorconnect",
@@ -44,7 +45,8 @@
         "basic-security-checks",
         "dependency-review",
         "production-audit"
-      ]
+      ],
+      "codeownersPath": ".github/CODEOWNERS"
     },
     {
       "name": "fabvyx-agents",
@@ -59,7 +61,8 @@
       ],
       "requiredChecks": [
         "Lint, Typecheck, Unit"
-      ]
+      ],
+      "codeownersPath": ".github/CODEOWNERS"
     },
     {
       "name": "fabvyx-edge-agent",
@@ -77,7 +80,8 @@
       "requiredChecks": [
         "test-build",
         "test-build-windows"
-      ]
+      ],
+      "codeownersPath": ".github/CODEOWNERS"
     },
     {
       "name": "fabvyx-protocol",
@@ -95,7 +99,8 @@
       "requiredChecks": [
         "test",
         "release-train"
-      ]
+      ],
+      "codeownersPath": ".github/CODEOWNERS"
     }
   ],
   "rules": {
