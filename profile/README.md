@@ -2,7 +2,7 @@
   <a href="https://vyx.pt" aria-label="Visitar o website da vyx Systems">
     <img
       src="./assets/vyx-systems-banner-v2.svg"
-      alt="vyx Systems — Sistemas que fazem o negócio avançar"
+      alt="vyx Systems - Sistemas que fazem o negócio avançar"
       width="100%"
     />
   </a>
@@ -28,7 +28,7 @@
 
 Na **vyx Systems**, juntamos produto, engenharia e conhecimento operacional para desenvolver software que resolve problemas concretos.
 
-Da gestão central ao chão de fábrica, da obra ao ponto de venda, desenhamos soluções que ligam pessoas, processos e dados — com foco em clareza, controlo e evolução contínua.
+Da gestão central ao chão de fábrica, da obra ao ponto de venda, desenhamos soluções que ligam pessoas, processos e dados - com foco em clareza, controlo e evolução contínua.
 
 <table>
   <tr>
@@ -59,7 +59,7 @@ A camada operacional local para ambientes industriais. Aproxima máquinas, posto
 
 ### Construvyx
 
-Uma plataforma de gestão para construção, orientada ao acompanhamento de obra, equipas, assiduidade e processos administrativos — com a informação certa disponível no terreno e na gestão.
+Uma plataforma de gestão para construção, orientada ao acompanhamento de obra, equipas, assiduidade e processos administrativos - com a informação certa disponível no terreno e na gestão.
 
 ### Shopvyx
 
@@ -71,11 +71,11 @@ Desenvolvemos portais, configuradores 3D, automações, agentes de operação e 
 
 ## Princípios de engenharia
 
-- **O problema vem primeiro** — tecnologia com propósito e impacto mensurável.
-- **Simplicidade operacional** — sistemas claros para quem decide e para quem executa.
-- **Segurança desde a origem** — controlo de acesso, auditoria e proteção de dados por desenho.
-- **Integração sem dependência** — componentes modulares, contratos explícitos e evolução sustentável.
-- **Qualidade contínua** — automação, observabilidade e validação em todo o ciclo de entrega.
+- **O problema vem primeiro** - tecnologia com propósito e impacto mensurável.
+- **Simplicidade operacional** - sistemas claros para quem decide e para quem executa.
+- **Segurança desde a origem** - controlo de acesso, auditoria e proteção de dados por desenho.
+- **Integração sem dependência** - componentes modulares, contratos explícitos e evolução sustentável.
+- **Qualidade contínua** - automação, observabilidade e validação em todo o ciclo de entrega.
 
 ---
 
