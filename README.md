@@ -6,7 +6,7 @@ O conteúdo visível do perfil está em [`profile/README.md`](profile/README.md)
 
 ## Fabvyx organization configuration
 
-This repository is the versioned source for organization-level governance policy that applies to the five Fabvyx product repositories.
+This repository is the versioned source for organization-level governance policy that applies to the Fabvyx product repositories: platform, floorconnect, edge-agent and protocol. `fabvyx-agents` stays listed as `retiring` while its code moves into `fabvyx-floorconnect/agents/` (decided 2026-10-27); it is archived after the transition.
 
 `governance/repositories.json` records the protected domains, release/CI workflows and runner/check rules expected across the organization. Validate it locally with:
 

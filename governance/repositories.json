@@ -37,7 +37,8 @@
         "prisma/",
         "services/api/",
         "services/worker/",
-        ".github/workflows/"
+        ".github/workflows/",
+        "agents/"
       ],
       "requiredChecks": [
         "Lint, Typecheck, Unit",
@@ -62,7 +63,14 @@
       "requiredChecks": [
         "Lint, Typecheck, Unit"
       ],
-      "codeownersPath": ".github/CODEOWNERS"
+      "codeownersPath": ".github/CODEOWNERS",
+      "lifecycle": {
+        "status": "retiring",
+        "mergedInto": "fabvyx-floorconnect",
+        "path": "agents/",
+        "decidedAt": "2026-10-27",
+        "note": "Code imported with history into fabvyx-floorconnect/agents/; releases move to floorconnect-v. The repository is archived after the transition, not before."
+      }
     },
     {
       "name": "fabvyx-edge-agent",
