@@ -2,11 +2,27 @@ import { readFile } from "node:fs/promises";
 
 const path = process.argv.find((arg) => arg.startsWith("--policy="))?.slice("--policy=".length) ?? "governance/repositories.json";
 const policy = JSON.parse(await readFile(path, "utf8"));
-const expectedRepositories = ["fabvyx-platform", "fabvyx-floorconnect", "fabvyx-agents", "fabvyx-edge-agent", "fabvyx-protocol"];
+const expectedRepositories = ["fabvyx-platform", "fabvyx-floorconnect", "fabvyx-edge-agent", "fabvyx-protocol"];
+// fabvyx-agents is being merged into fabvyx-floorconnect (agents/, decided 2026-10-27). Until the
+// repository is archived it may stay in the policy, but only marked as retiring into the FloorConnect.
+const retiringRepositories = { "fabvyx-agents": { mergedInto: "fabvyx-floorconnect", path: "agents/" } };
 const requiredRuleKeys = ["pullRequestRunners", "releaseRunners", "requiredChecksMustUseMergeSha", "queuedChecksSlaMinutes", "forbidPrivilegedSecretsOnUntrustedPullRequests"];
 assert(policy.version === 1, "unsupported policy version");
 assert(policy.organization === "vyx-systems", "organization must be vyx-systems");
-assert(JSON.stringify(policy.repositories.map((repo) => repo.name).sort()) === JSON.stringify([...expectedRepositories].sort()), "policy must cover exactly the five Fabvyx repositories");
+const declared = policy.repositories.map((repo) => repo.name);
+const active = declared.filter((name) => !Object.hasOwn(retiringRepositories, name));
+assert(JSON.stringify(active.sort()) === JSON.stringify([...expectedRepositories].sort()), "policy must cover exactly the four active Fabvyx repositories (plus fabvyx-agents while it retires)");
+assert(new Set(declared).size === declared.length, "duplicate repository in policy");
+for (const repo of policy.repositories) {
+  const retiring = retiringRepositories[repo.name];
+  if (retiring) {
+    assert(repo.lifecycle?.status === "retiring" && repo.lifecycle?.mergedInto === retiring.mergedInto && repo.lifecycle?.path === retiring.path, `${repo.name}: must be marked lifecycle retiring into ${retiring.mergedInto} (${retiring.path})`);
+    const target = policy.repositories.find((candidate) => candidate.name === retiring.mergedInto);
+    assert(target?.protectedDomains?.includes(retiring.path), `${retiring.mergedInto}: must protect ${retiring.path} once ${repo.name} is merged into it`);
+  } else {
+    assert(repo.lifecycle === undefined, `${repo.name}: lifecycle is only for retiring repositories`);
+  }
+}
 for (const key of requiredRuleKeys) assert(Object.hasOwn(policy.rules ?? {}, key), `missing rule ${key}`);
 assert(policy.rules.pullRequestRunners === "ephemeral-isolated", "PR runners must be ephemeral-isolated");
 assert(policy.rules.releaseRunners === "protected-environment", "release runners must use a protected environment");
