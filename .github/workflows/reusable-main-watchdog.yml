@@ -1,0 +1,152 @@
+# Workflow reutilizável VYX: vigia o CI de `main`.
+# - CI vermelho só por falta de runner: repete os jobs falhados uma vez.
+# - CI vermelho a sério: abre uma issue «main vermelho» (sem duplicados).
+# - CI verde: fecha as issues «main vermelho» cujo SHA já está contido no verde.
+# O chamador dispara-o com `on: workflow_run` sobre o seu workflow de CI e dá
+# `permissions: { contents: read, issues: write, actions: write }`.
+# Uso obrigatório nos repos de produto — ver README.
+name: vyx-main-watchdog
+
+on:
+  workflow_call:
+    inputs:
+      runner_labels:
+        description: 'Labels do runner em JSON, ex.: ["self-hosted","linux","x64","vyx-ci"]'
+        type: string
+        required: true
+      title_prefix:
+        type: string
+        default: "main vermelho: CI falhou em"
+
+permissions:
+  contents: read
+
+jobs:
+  report-main-failure:
+    name: Report main CI failure
+    if: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ${{ fromJSON(inputs.runner_labels) }}
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+      actions: write
+    steps:
+      - name: Ensure GitHub CLI is available
+        run: |
+          set -euo pipefail
+          if ! command -v gh >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y gh
+          fi
+          gh --version
+      - name: Retry once when no runner acquired the job
+        id: acquire-retry
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+          ATTEMPT: ${{ github.event.workflow_run.run_attempt }}
+        run: |
+          set -euo pipefail
+          retried=false
+          if [ "${ATTEMPT}" != "1" ]; then
+            echo "Tentativa ${ATTEMPT}; não há novo retry automático."
+          else
+            acquisition=0
+            other=0
+            while IFS=$'\t' read -r job_id conclusion; do
+              case "${conclusion}" in
+                success|skipped|"") continue ;;
+              esac
+              message="$(gh api "repos/${GH_REPO}/check-runs/${job_id}/annotations" --jq '[.[].message] | join("\n")' 2>/dev/null || true)"
+              if printf '%s\n' "${message}" | grep -q 'not acquired by Runner'; then
+                acquisition=$((acquisition + 1))
+              else
+                other=$((other + 1))
+              fi
+            done < <(gh api "repos/${GH_REPO}/actions/runs/${RUN_ID}/attempts/${ATTEMPT}/jobs?per_page=100" --jq '.jobs[] | [.id, .conclusion] | @tsv')
+            if [ "${acquisition}" -gt 0 ] && [ "${other}" -eq 0 ]; then
+              echo "CI sem runner (${acquisition} jobs). A repetir os jobs falhados uma vez."
+              if gh run rerun "${RUN_ID}" --failed; then
+                retried=true
+              else
+                echo "Não foi possível repetir o run; segue a issue de main vermelho." >&2
+              fi
+            fi
+          fi
+          printf 'retried=%s\n' "${retried}" >> "${GITHUB_OUTPUT}"
+      - name: Create deduplicated main failure issue
+        if: ${{ always() && steps.acquire-retry.outputs.retried != 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          FAILED_SHA: ${{ github.event.workflow_run.head_sha }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+          TITLE_PREFIX: ${{ inputs.title_prefix }}
+        run: |
+          set -euo pipefail
+          title="${TITLE_PREFIX} ${FAILED_SHA:0:7}"
+          existing="$(gh issue list --state open --search "${title} in:title" --limit 100 --json number,title \
+            --jq ".[] | select(.title == \"${title}\") | .number")"
+          if [ -n "${existing}" ]; then
+            echo "Issue #${existing} já existe para ${FAILED_SHA}; não será criada outra."
+            exit 0
+          fi
+          # shellcheck disable=SC2016 # backticks literais no markdown
+          body="$(printf 'O CI de `main` falhou.\n\n- SHA: `%s`\n- Run: %s\n\nInvestigar e restaurar `main` antes de integrar novas alterações.' "${FAILED_SHA}" "${RUN_URL}")"
+          gh issue create --title "${title}" --body "${body}"
+
+  close-resolved-main-failures:
+    name: Close resolved main CI failures
+    if: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ${{ fromJSON(inputs.runner_labels) }}
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Ensure GitHub CLI is available
+        run: |
+          set -euo pipefail
+          if ! command -v gh >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y gh
+          fi
+          gh --version
+      - name: Close main failure issues fixed by this green run
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          GREEN_SHA: ${{ github.event.workflow_run.head_sha }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+          TITLE_PREFIX: ${{ inputs.title_prefix }}
+        run: |
+          set -euo pipefail
+          open_issues="$(gh issue list --state open --author app/github-actions \
+            --search "\"${TITLE_PREFIX}\" in:title" --limit 200 --json number,title \
+            --jq ".[] | select(.title | startswith(\"${TITLE_PREFIX} \")) | [.number, (.title | ltrimstr(\"${TITLE_PREFIX} \"))] | @tsv")"
+          closed=0
+          kept=0
+          while IFS=$'\t' read -r number failed_sha; do
+            [ -n "${number}" ] || continue
+            if ! printf '%s' "${failed_sha}" | grep -Eq '^[0-9a-f]{7,40}$'; then
+              echo "#${number}: título sem SHA reconhecível; fica aberta."
+              kept=$((kept + 1))
+              continue
+            fi
+            status="$(gh api "repos/${GH_REPO}/compare/${failed_sha}...${GREEN_SHA}?per_page=1" --jq '.status' 2>/dev/null || true)"
+            case "${status}" in
+              identical|ahead)
+                # shellcheck disable=SC2016 # backticks literais no markdown
+                body="$(printf 'O CI de `main` ficou verde em `%s`, que já contém `%s`.\n\n- Run verde: %s\n\nFechada automaticamente pelo `vyx-main-watchdog`.' "${GREEN_SHA}" "${failed_sha}" "${RUN_URL}")"
+                gh issue close "${number}" --reason completed --comment "${body}"
+                closed=$((closed + 1))
+                ;;
+              *)
+                echo "#${number}: ${failed_sha} não está contido em ${GREEN_SHA:0:7} (compare: ${status:-erro}); fica aberta."
+                kept=$((kept + 1))
+                ;;
+            esac
+          done <<< "${open_issues}"
+          echo "Issues «${TITLE_PREFIX}» fechadas: ${closed}; mantidas: ${kept}."

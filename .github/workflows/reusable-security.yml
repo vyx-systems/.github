@@ -1,0 +1,69 @@
+# Workflow reutilizável VYX: verificações de segurança básicas (segredos e
+# artefactos proibidos). Uso obrigatório nos repos de produto — ver README.
+name: vyx-security
+
+on:
+  workflow_call:
+    inputs:
+      runner_labels:
+        description: 'Labels do runner em JSON, ex.: ["self-hosted","linux","x64","vyx-ci","docker"]'
+        type: string
+        required: true
+      script:
+        description: Script do repo chamador que faz a verificação estática
+        type: string
+        default: tools/scripts/security-static-check.sh
+      timeout_minutes:
+        type: number
+        default: 15
+
+permissions:
+  contents: read
+
+jobs:
+  basic-security-checks:
+    name: basic-security-checks
+    runs-on: ${{ fromJSON(inputs.runner_labels) }}
+    timeout-minutes: ${{ inputs.timeout_minutes }}
+    steps:
+      # Igual em todos os reusable-*.yml que correm em self-hosted; mudar em todos.
+      - name: Clean self-hosted workspace
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if command -v docker >/dev/null 2>&1; then
+            docker container prune --force --filter 'until=168h'
+            docker network prune --force --filter 'until=168h'
+            docker image prune --all --force --filter 'until=168h'
+            docker builder prune --all --force --filter 'until=168h'
+          fi
+          if [ -n "${GITHUB_WORKSPACE:-}" ] && [ -d "$GITHUB_WORKSPACE" ]; then
+            if command -v sudo >/dev/null 2>&1 && sudo -n true 2>/dev/null; then
+              sudo find "$GITHUB_WORKSPACE" -mindepth 1 -maxdepth 1 -exec rm -rf {} +
+            elif command -v docker >/dev/null 2>&1; then
+              if ! docker image inspect alpine:3.20 >/dev/null 2>&1 && [ -n "${DOCKERHUB_USERNAME:-}" ] && [ -n "${DOCKERHUB_TOKEN:-}" ]; then
+                printf '%s' "$DOCKERHUB_TOKEN" | docker login docker.io --username "$DOCKERHUB_USERNAME" --password-stdin \
+                  || echo "::warning title=Docker Hub anónimo::docker login falhou; pull de alpine:3.20 anónimo."
+              fi
+              docker run --rm -v "$GITHUB_WORKSPACE:/workspace" alpine:3.20 sh -c 'rm -rf /workspace/..?* /workspace/.[!.]* /workspace/*'
+              docker logout >/dev/null 2>&1 || true
+            else
+              find "$GITHUB_WORKSPACE" -mindepth 1 -maxdepth 1 -exec rm -rf {} + 2>/dev/null || true
+            fi
+          fi
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v6
+        with:
+          clean: false
+          persist-credentials: false
+      - name: Static secret and artefact guard
+        env:
+          SCRIPT: ${{ inputs.script }}
+        run: |
+          set -euo pipefail
+          if [ ! -f "$SCRIPT" ]; then
+            echo "::error title=vyx-security::Falta $SCRIPT no repo. É obrigatório (ver README de vyx-systems/.github)."
+            exit 1
+          fi
+          bash "$SCRIPT"

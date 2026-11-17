@@ -1,0 +1,50 @@
+# Valida os workflows deste repo. Corre só em runners do GitHub: este repo é
+# público e nunca pode pedir runners self-hosted para os seus próprios jobs.
+name: workflow-lint
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/**
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  actionlint:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: actionlint
+        run: docker run --rm -v "$PWD:/repo" --workdir /repo rhysd/actionlint:1.7.7 -color
+      - name: Actions pinned por SHA
+        run: |
+          set -euo pipefail
+          bad="$(grep -rnE '^\s*-?\s*uses:\s' .github/workflows | grep -vE 'uses:\s*\./' | grep -vE '@[0-9a-f]{40}(\s|$)' || true)"
+          if [ -n "$bad" ]; then
+            echo "$bad"
+            echo "::error::Todas as actions têm de estar pinned por SHA de 40 hex."
+            exit 1
+          fi
+      - name: Jobs deste repo não pedem self-hosted
+        run: |
+          set -euo pipefail
+          # Os reusable-*.yml recebem os labels do chamador (correm no repo dele);
+          # os restantes workflows são deste repo público e só podem usar runners do GitHub.
+          status=0
+          for f in .github/workflows/*.yml; do
+            case "$f" in */reusable-*) continue ;; esac
+            if grep -qE 'runs-on:.*self-hosted' "$f"; then
+              echo "::error file=$f::Repo público: proibido pedir runners self-hosted."
+              status=1
+            fi
+          done
+          exit "$status"
