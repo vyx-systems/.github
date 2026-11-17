@@ -42,7 +42,7 @@ jobs:
           status=0
           for f in .github/workflows/*.yml; do
             case "$f" in */reusable-*) continue ;; esac
-            if grep -qE 'runs-on:.*self-hosted' "$f"; then
+            if grep -qE '^[[:space:]]*runs-on:.*self-hosted' "$f"; then
               echo "::error file=$f::Repo público: proibido pedir runners self-hosted."
               status=1
             fi
